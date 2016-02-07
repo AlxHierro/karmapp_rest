@@ -1,17 +1,20 @@
 package es.futurespace.karmapp.server;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.concurrent.atomic.AtomicLong;
+import location.indataDN;
+import location.karmapp_data;
 
-import com.google.gson.Gson;
-import es.futurespace.karmapp.domain.RegisterRequest;
-import es.futurespace.karmapp.util.UsersUtil;
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.ResponseEntity.BodyBuilder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import es.futurespace.karmapp.domain.RegisterRequest;
+import es.futurespace.karmapp.util.UsersUtil;
 
 
 @RestController
@@ -19,8 +22,10 @@ import org.springframework.web.bind.annotation.*;
 public class KarmAppRestController {
     private UsersUtil usersUtil = new UsersUtil();
 
+    @Autowired
+    private EventManager e;
+    
     @RequestMapping(value = "/register", method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
-
     public ResponseEntity greeting(@RequestParam(value="mail") String mail,@RequestBody RegisterRequest request) {
         String result;
         //TODO: comprobar si existe usuario
@@ -57,5 +62,8 @@ public class KarmAppRestController {
         }
     }
 
-
+    @RequestMapping(value = "/event", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+    public karmapp_data process(@RequestBody indataDN data) {
+    	return e.getLocationManager().execute(data);
+    }
 }

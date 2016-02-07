@@ -1,0 +1,7 @@
+env:
+    parkings:
+        residentes: /Users/tiocansino/Curro/karmapp/ogonzalez/KarmappBackend/location/src/main/resources/202584-0-aparcamientos-residentes.xml
+        publicos: /Users/tiocansino/Curro/karmapp/ogonzalez/KarmappBackend/location/src/main/resources/202625-0-aparcamientos-publicos.xml
+        electricos: /Users/tiocansino/Curro/karmapp/ogonzalez/KarmappBackend/location/src/main/resources/212504-0-agenda-actividades-deportes.xml
+    events: /Users/tiocansino/Curro/karmapp/ogonzalez/KarmappBackend/location/src/main/resources/electric.json
+        
