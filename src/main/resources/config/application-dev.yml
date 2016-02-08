@@ -1,0 +1,7 @@
+env:
+    parkings:
+        residentes: D:\Hackaton\core\KarmappBackend\location\src\main\resources\202584-0-aparcamientos-residentes.xml
+        publicos: D:\Hackaton\core\KarmappBackend\location\src\main\resources\202625-0-aparcamientos-publicos.xml
+        electricos: D:\Hackaton\core\KarmappBackend\location\src\main\resources\212504-0-agenda-actividades-deportes.xml
+    events: D:\Hackaton\core\KarmappBackend\location\src\main\resources\electric.json
+        
